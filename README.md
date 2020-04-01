@@ -54,7 +54,7 @@ The API can this be used like in the following example to add 2 services, removi
     tts::printSrvs();
 ```
 When using the queue the higher priority has the lower number, thus messages with priority 1 are considered twice as important as messages with priority 2, three times as important as messages with priority 3 etc.
-The more important the message is, the more often it is going to be said. Currently the time between messages being said is 3 seconds but can be changed in ´´´tts.h´´´.
+The more important the message is, the more often it is going to be said. Currently the time between messages being said is 3 seconds but can be changed in ´´´tts.h´´´ .
 Be aware that more functions than shown above will appear when accessing the tts namepsace, **These are for internal use only and should not be applied in usage of this package!** 
 ## Future Improvements
 In future versions of this package the following implementations will be added 
