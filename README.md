@@ -60,6 +60,12 @@ In future versions of this package the following implementations will be added
    2. Loop frequency for individual services.
    3. Init timeout, for greater flexibility in initialization.
 4. Greater protection of functions not meant to be used such as
-   1. ```cpp bool init(). ```
-   2. ```cpp inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) ```
+   1. 
+   ```cpp 
+   	bool init(). 
+   ```
+   2. 
+   ```cpp 
+   inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) 
+   ```
 
