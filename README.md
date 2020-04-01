@@ -38,10 +38,10 @@ Now tts should be at your disposal.
 The API can this be used like in the following example to add 2 services, removing one service, say some service and print a table over the services in the internal queue. Here a message connected to a priority is refered to as a service.
 
 ```cpp
-    // Add an element to the tts queue with priority of 1.
+    // Add an element to the tts queue with priority 1.
     tts::addToQueue("Hello, I'm a tts node and will say this outloaud", 1);
 
-    // Adding another element to the queue.
+    // Adding another element to the queue with priority 2.
     tts::addToQueue("I'm just a tts node", 2);
 
     // Removing the element with the specified message and priority.
