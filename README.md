@@ -20,25 +20,46 @@ and ofcourse in the nodes using the API.
 ## Prerequisites
 ``` pyttsx3 ``` for python 2
 ## Usage
-To use the project, one possible solution is including the node in your launch file, which could look like this.
+To use the project, one possible solution is include the node in your launch file, which could look like this.
 ```xml
   <node pkg="sender" name="sender" type="sender" output="screen" launch-prefix="gnome-terminal -e" />
   <node pkg="tts" name="tts" type="tts" output="screen" launch-prefix="gnome-terminal -e"/>
 ```
-
-Here are some examples of how to use the API given.
-### Add string to queue
-This method adds ```str``` to the build in queue.
+Be aware that the tts node must launch wihtin 5 seconds before other nodes are launched.
+To use tts in your other nodes these must be initialized like so.
 ```cpp
-tts::addToQueue("Hello",1)
+    // Initiate the node using tts
+    ros::init(argc, argv, "node");
+    ros::NodeHandle n;
+```
+The API can thus be used like in the following example to add 2 services, removing one service, say some service and print a table over the services in the internal queue. Here a message connected to a priority is refered to as a service.
+
+```cpp
+    // Add an element to the tts queue with priority of 1.
+    tts::addToQueue("Hello, I'm a tts node and will say this outloaud", 1);
+
+    // Adding another element to the queue.
+    tts::addToQueue("I'm just a tts node", 2);
+
+    // Removing the element with the specified message and priority.
+    tts::removeFromQueue("I'm just a tts node",2);
+
+    // Place this element in the front of the queue.
+    tts::say("I'm gonna say this now");
+
+    // Print a table showing the services' message and priority.
+    tts::printSrvs();
 ```
 
-#### Remove string from queue
-#### Say some string
-
-
-#### Print current Services
-
-
-
 ## Future improvement
+In future versions of this package the following implementations will be added 
+1. Symmetric queue loop for fully reliable service frequenzy pattern.
+2. On the fly calculation of queue element instead of precalculated queue. This is for saving memeory.
+3. ROS parameters for constants, such as:
+	a. Queue size.
+	b. Loop frequency for individual services.
+	c. Init timeout, for greater flexibility in initialization.
+4. Greater protection of functions not meant to be used such as
+	a. ```cpp bool init(). ```
+	b. ```cpp inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) ```
+
