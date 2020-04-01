@@ -50,7 +50,7 @@ The API can thus be used like in the following example to add 2 services, removi
     // Print a table showing the services' message and priority.
     tts::printSrvs();
 ```
-Be aware that more functions will show when using this package, **These are used for internal use and should not be applied in usage!** 
+Be aware that more functions will show when using this package, **These are for internal use only and should not be applied in usage of this package!** 
 ## Future improvement
 In future versions of this package the following implementations will be added 
 1. Symmetric queue loop for fully reliable service frequenzy pattern.
