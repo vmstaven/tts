@@ -18,7 +18,7 @@ in your ```package.xml``` as such:
 and ofcourse in the node using the API.
 ### Prerequisites
 ``` pyttsx3 ``` for python 2
-### Running the tests
+### Usage
 Here are some examples of how to use the API given.
 #### Add string to queue
 This method adds ```str``` to the build in queue.
