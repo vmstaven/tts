@@ -4,13 +4,9 @@ A simple ROS implementation of a Text-To-Speech node.
 To get started with using tts, include 
 ```CMake
 find_package(
-	catkin
-	REQUIRED COMPONENTS
-  	roscpp
-	rospy
-	std_msgs
-	genmsg
+	...
   	tts
+	...
 )
 ```
 ### Prerequisites
