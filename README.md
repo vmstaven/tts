@@ -56,10 +56,10 @@ In future versions of this package the following implementations will be added
 1. Symmetric queue loop for fully reliable service frequenzy pattern.
 2. On the fly calculation of queue element instead of precalculated queue. This is for saving memeory.
 3. ROS parameters for constants, such as:
-   a. Queue size.
-   b. Loop frequency for individual services.
-   c. Init timeout, for greater flexibility in initialization.
+   1. Queue size.
+   2. Loop frequency for individual services.
+   3. Init timeout, for greater flexibility in initialization.
 4. Greater protection of functions not meant to be used such as
-   a. ```cpp bool init(). ```
-   b. ```cpp inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) ```
+   1. ```cpp bool init(). ```
+   2. ```cpp inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) ```
 
