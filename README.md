@@ -1,9 +1,10 @@
 # tts
-A simple ROS implementation of a Text-To-Speech node i C++.
+A simple ROS implementation of a Text-To-Speech node in C++.
 ## Getting Started
-First clone the project into your ROS workspace in ``` src ```.
-To get started with using this tts node, it must be included in the following files as shown below. 
-include tts in your nodes who are using tts' ```CMakeLists.txt```:
+First clone the project into your ROS workspace in ``` src ```, 
+then include it in the following files, for each node using this project as shown below.
+
+In ```CMakeLists.txt```:
 ```CMake
 find_package(
 	...
@@ -11,14 +12,15 @@ find_package(
 	...
 )
 ```
-in your ```package.xml``` as such:
+
+In ```package.xml```:
 ```xml
 <build_depend>tts</build_depend>
 <exec_depend>tts</exec_depend>
 ```
-and ofcourse in the nodes using the API.
+
 ## Prerequisites
-``` pyttsx3 ``` for python 2
+``` pyttsx3 ``` for python 2.
 ## Usage
 To use the project, one possible solution is include the node in your launch file, which could look like this.
 ```xml
@@ -32,7 +34,8 @@ To use tts in your other nodes these must be initialized like so.
     ros::init(argc, argv, "node");
     ros::NodeHandle n;
 ```
-The API can thus be used like in the following example to add 2 services, removing one service, say some service and print a table over the services in the internal queue. Here a message connected to a priority is refered to as a service.
+Now tts should be at your disposal.
+The API can this be used like in the following example to add 2 services, removing one service, say some service and print a table over the services in the internal queue. Here a message connected to a priority is refered to as a service.
 
 ```cpp
     // Add an element to the tts queue with priority of 1.
@@ -50,8 +53,8 @@ The API can thus be used like in the following example to add 2 services, removi
     // Print a table showing the services' message and priority.
     tts::printSrvs();
 ```
-Be aware that more functions will show when using this package, **These are for internal use only and should not be applied in usage of this package!** 
-## Future improvement
+Be aware that more functions than shown above will appear when accessing the tts namepsace, **These are for internal use only and should not be applied in usage of this package!** 
+## Future Improvements
 In future versions of this package the following implementations will be added 
 1. Symmetric queue loop for fully reliable service frequenzy pattern.
 2. On the fly calculation of queue element instead of precalculated queue. This is for saving memeory.
@@ -59,7 +62,7 @@ In future versions of this package the following implementations will be added
    1. Queue size.
    2. Loop frequency for individual services.
    3. Init timeout, for greater flexibility in initialization.
-4. Greater protection of functions not meant to be used such as
+4. Greater protection of functions not meant to be used such as:
    1. ```bool init().```
    2. ``` inline bool callService(ros::ServiceClient &client, const std::string &data, int priority) ```
 
