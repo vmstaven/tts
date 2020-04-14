@@ -20,10 +20,10 @@ namespace tts
 
     inline ros::NodeHandle* m   = nullptr;
 
-    bool        addToQueue(const std::string &data_str, int pri);                               // This method adds a new service to setSrv, and rebuilds the queue.
-    bool        removeFromQueue(tts::TextToSpeechSrv::Request &srv);                            // Removes a service from setSrv and rebuilds the queue.
-    bool        say(const std::string &str, int priority = 1);                                  // This method ensures that whatever string is given, is the next srv being said.
-    void        printSrvs();                                                                    // Prints a table of the current services.
+    bool        addToQueue(const std::string &data, int priority);                               // This method adds a new service to setSrv, and rebuilds the queue.
+    bool        removeFromQueue(const std::string &data, int priority);                          // Removes a service from setSrv and rebuilds the queue.
+    bool        say(const std::string &data, int priority = 1);                                  // This method ensures that whatever string is given, is the next srv being said.
+    void        printSrvs();                                                                     // Prints a table of the current services.
     inline bool callService(ros::ServiceClient &client, const std::string &data, int priority);
     bool        init();
 } 
